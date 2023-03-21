@@ -1,11 +1,13 @@
 {
   "name": "pagetransisition",
+  "homepage": "https://ayank007.github.io/page-transition",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "deploy": "gh-pages -d dist",
     "preview": "vite preview"
   },
   "devDependencies": {
@@ -15,6 +17,7 @@
     "vite": "^4.2.0"
   },
   "dependencies": {
+    "gh-pages": "^5.0.0",
     "sass": "^1.59.3"
   }
 }
