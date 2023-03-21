@@ -1,0 +1,280 @@
+.bg{
+    background-position: center top -1px;
+    background-image: url('./media/download.svg');
+    -webkit-mask-image: linear-gradient(transparent, black, transparent);
+    border-color: rgba(241,245,249,.05);
+    z-index: -1;
+}
+.transition1{
+    .dot .dotInner{
+        background-color: var(--dark);
+    }
+    .page1, .page2, .page3{
+        width: 100vw;
+        position: fixed;
+        height: 100vh;
+        inset: 0;
+        transform: translateY(calc(100vh + 5px));
+        z-index: 300;
+    }
+    .page1{
+        background-color: #713EFD;
+        &.active{
+            transition: 0.6s;
+            transform: translateY(0);
+        }
+    }
+    .page3{
+        .row{
+            background-color: #AFE8FC;
+        }
+        display: flex;
+        flex-flow: column;
+        &.active{
+            transition: 0.4s;
+            transform: translateY(0);
+        }
+        &.active2{
+            .row{
+                transition: 0.6s;
+                transform: translateX(100%);
+            }
+            .row2{
+                transition-delay: 0.1s;
+            }
+            .row3{
+                transition-delay: 0.2s;
+            }
+            .row4{
+                transition-delay: 0.3s;
+            }
+            .row5{
+                transition-delay: 0.4s;
+            }
+        }
+        .row{
+            height: calc(100vh / 5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            font-size: 20px;
+        }
+    }
+    .pageTransitionTxt{
+        color: var(--dark);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        gap: 5px;
+    }
+}
+
+.transition2{
+    .pageX{
+        position: fixed;
+        left: -350px;
+        top: -100%;
+        width: 2500px;
+        height: 300vh;
+        transform: rotate(-45deg) translate(-100%);
+        transition: 0s;
+        transition-delay: 0s;
+        opacity: 0;
+        z-index: 200000000;
+        &.come{
+            opacity: 1;
+            transform: rotate(-45deg) translate(-0%);
+        }
+        &.go{
+            transition: 0s;
+            transform-origin: 100% 100%;
+            transform: rotate(-45deg) translateY(-200%);
+        }
+    }
+    .pageX1{
+        background-color: black;
+        z-index: 1000;
+        &.come{
+            transition: 1s;
+            transition-delay: 0s;
+        }
+    }
+    .pageX2{
+        background-color: rgb(55, 216, 103);
+        z-index: 1002;
+        &.come{
+            transition: 0.9s;
+            transition-delay: 0.3s;
+        }
+    }
+    .pageX3{
+        background-color: rgb(209, 19, 19);
+        z-index: 1003;
+        &.come{
+            transition: 0.7s;
+            transition-delay: 0.5s;
+        }
+        .pageTxt{
+            transform: rotate(-45deg);
+        }
+        &.go{
+            transition: 0.1s;
+        }
+    }
+    .pageX4{
+        background-color: rgb(14, 47, 66);
+        z-index: 1004;
+        &.come{
+            transition: 0.6s;
+            transition-delay: 0.6s;
+        }
+        &.go{
+            transition: 2s;
+        }
+    }
+    .pageTxt{
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        top: 35%;
+        left: 33%;
+        color: azure;
+        font-size: 40px;
+        transform: rotate(45deg);
+    }
+}
+
+.transition3{
+    z-index: 100000;
+    position: fixed;
+    inset: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--theme);
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s;
+    &.active{
+        opacity: 1;
+        transition: 0s;
+        pointer-events: auto;
+    }
+    .images{
+        opacity: 0.2;
+        position: absolute;
+        width: max-content;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.1);
+        transition: 0.4s;
+        &.active{
+            transform: translate(-50%, -50%) scale(0.4);
+            .rows{
+                opacity: 1;
+            }
+        }
+        &.active2{
+            transform: translate(-50%, -50%) scale(0.7);
+            img{
+                transform: translate(0px, 0px) !important;
+            }
+        }
+        &.active3{
+            transform: translate(-50%, -50%) scale(1);
+            .row{
+                transform: translate(0px, 0px) !important;
+            }
+        }
+        img{
+            height: 25vh;
+            padding: 1.1vh 1.3vh;
+            overflow-clip-margin: content-box;
+            overflow: clip;
+            transition: 0.4s;
+        }
+        .rows{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .row{
+                display: flex;
+                flex-shrink: 0;
+                transition: 0.4s;
+                &.row1{
+                    transform: translateY(200%);
+                }
+                &.row2{
+                    transform: translateY(100%);
+                }
+                &.row4{
+                    transform: translateY(-100%);
+                }
+                &.row5{
+                    transform: translateY(-200%);
+                }
+            }
+        }
+        .col{
+            &.col1{
+                transform: translateX(200%);
+            }
+            &.col2{
+                transform: translateX(100%);
+            }
+            &.col4{
+                transform: translateX(-100%);
+            }
+            &.col5{
+                transform: translateX(-200%);
+            }
+        }
+    }
+}
+
+.loadingText{
+    font-size: 35px;
+    font-weight: 900;
+    padding-right: 0.8rem;
+    line-height: 0.7;
+}
+.dot{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 0.5rem;
+    height: 0.5rem;
+    animation: dot 1.2s ease-in-out infinite;
+    .dotInner{
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color: white;
+        animation: dotInner 1.2s linear infinite;
+        transform-origin: bottom;
+    }
+}
+@keyframes dot {
+    50% {
+        bottom: 80%;
+    }
+    100% {
+        bottom: 0;
+    }
+}
+@keyframes dotInner {
+    0% {
+        transform: scaleY(0.4);
+    }
+    25%, 75% {
+        transform: scaleY(1);
+    }
+    100% {
+        transform: scaleY(0.4);
+    }
+}
